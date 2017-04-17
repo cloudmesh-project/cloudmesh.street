@@ -1,0 +1,39 @@
+---
+# vars file for opencv
+local_packages:
+  - build-essential
+  - cmake
+  - git
+  - pkg-config
+# Install libraries for various video formats 
+video_packages:
+  - libavcodec-dev
+  - libavformat-dev
+  - libswscale-dev
+  - libv4l-dev
+# Install libraries for various image formats
+image_packages:
+  - libjpeg8-dev
+  - libtiff4-dev
+  - libjasper-dev
+  - libpng12-dev
+  - libjpeg-dev
+  - libpng-dev
+  - libtiff-dev
+# python bindings
+python_bindings:
+  - python-dev
+  - python-numpy
+  - libtbb2
+  - libtbb-dev
+  - libdc1394-22-dev
+  - libgtk2.0-dev
+# OpenCV dev lib
+open_cv_dev_lib:
+  - libopencv-dev
+  - python-opencv
+  - python-pip
+
+git_repo_path: https://github.com/Itseez/opencv.git
+opencv_workspace: "/opencv_workspace/"
+  

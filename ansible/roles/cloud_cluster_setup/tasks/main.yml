@@ -1,0 +1,37 @@
+---
+#tasks for cluster_setup
+ - name: cloudmesh configuration
+   become_user: '{{ local_user_name }}'
+   command: echo "Cloudmesh Configuration"
+
+ - name: set refresh cloudmesh on
+   become_user: '{{ local_user_name }}'
+   command: cm refresh on
+
+ - name: add key to cloudmesh database
+   become_user: '{{ local_user_name }}'
+   command: cm key add rraghata --source={{ local_home}}{{ key_path }}
+
+ - name: set default cloud
+   become_user: '{{ local_user_name }}'
+   command: cm default cloud= {{ cloud }}
+
+ - name: set default user
+   become_user: '{{ local_user_name }}'
+   command: cm default user= {{ username }}
+
+ - name: check vm_machine setup info       
+   become_user: '{{ local_user_name }}'
+   command: cm info
+
+ - name: upload key to cloud server
+   become_user: '{{ local_user_name }}'
+   command: cm key upload
+
+ - name: upload security group setting to cloud server
+   become_user: '{{ local_user_name }}'
+   command: cm secgroup upload
+
+ - name: check security group setting
+   become_user: '{{ local_user_name }}'
+   command: cm secgroup list

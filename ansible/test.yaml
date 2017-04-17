@@ -1,0 +1,14 @@
+---
+- hosts: master
+  remote_user: true
+  tasks:
+    - name: change user to hadoop and download data
+      become: yes
+      become_method: su
+      become_user: hadoop
+      shell: |
+         wget --no-check-certificate -O inputfile.txt https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt
+         hdfs dfs -mkdir /wordcount
+         hdfs dfs -put inputfile.txt /wordcount/inputfile.txt
+         hdfs dfs -ls /wordcount
+         hdfs dfs -rm -r /wordcount

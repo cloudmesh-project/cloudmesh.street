@@ -1,0 +1,8 @@
+---
+# variable file for hadoop_spark_deploy
+image_name: CC-Ubuntu14.04
+count: 3
+addons: "spark pig"
+local_home: "{{ lookup('env','HOME') }}"
+local_user_name: "{{ lookup('env','USER') }}"
+stack: "stack-00{{ lookup('env','stack_no') }}"

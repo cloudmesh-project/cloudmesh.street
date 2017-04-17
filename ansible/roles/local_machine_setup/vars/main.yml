@@ -1,0 +1,38 @@
+---
+#variables for local_machine_setup.yaml
+local_packages:
+          - python-setuptools
+          - python-pip
+          - expect
+          - git
+          - build-essential
+          - libpam-umask
+          - libssl-dev
+          - libffi-dev
+          - python-dev
+          - libncurses-dev
+          - libreadline-gplv2-dev
+          - libncursesw5-dev
+          - libsqlite3-dev
+          - tk-dev
+          - libgdbm-dev
+          - libc6-dev
+          - libbz2-dev
+
+local_pip_packages:
+          - pycrypto
+          - virtualenv
+          - virtualenvwrapper
+          - cryptography
+          - httplib2
+
+local_home: "{{ lookup('env','HOME') }}"
+virtual_env_activate: "/ENV/bin/activate"
+cm_path: "/usr/local/bin/cm"
+rsa_pub_path: "/.ssh/id_rsa"
+key_path: "/.ssh/id_rsa.pub"
+python_path: "/usr/bin/python"
+local_user_name: "{{ lookup('env','USER') }}"
+First_Name: Rahul
+Last_Name: Raghatate
+User_Email_Id: rvraghatate10@gmail.com

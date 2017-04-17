@@ -1,0 +1,38 @@
+---
+# OpenCV setup on remote machines
+
+- name: Install local dependencies
+  sudo: yes
+  apt: "name='{{ item }}' state=installed update_cache=yes"
+  with_items: '{{ local_packages }}'
+
+- name: Install video libraries
+  sudo: yes
+  apt: "name='{{ item }}' state=installed update_cache=yes"
+  with_items: '{{ video_packages }}'
+
+- name: Install image libraries
+  sudo: yes
+  apt: "name='{{ item }}' state=installed update_cache=yes"
+  with_items: '{{ image_packages }}'
+
+- name: Install python bindings
+  sudo: yes
+  apt: "name='{{ item }}' state=installed update_cache=yes"
+  with_items: '{{ python_bindings }}'
+
+- name: Install python bindings
+  sudo: yes
+  apt: "name='{{ item }}' state=installed update_cache=yes"
+  with_items: '{{ open_cv_dev_lib }}'
+
+- name: Create directory for files
+  become: yes
+  file: path={{ opencv_workspace }} state=directory mode=0777
+
+- name: Clone OpenCV repository
+  become: yes
+  git: repo={{ git_repo_path }} dest={{ opencv_workspace }} clone=yes
+
+- name: change the working directory
+  command: chdir="{{ opencv_workspace }}" ls

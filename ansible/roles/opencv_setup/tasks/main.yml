@@ -1,0 +1,3 @@
+---
+- { include: install-dependencies.yml }
+- { include: opencv-install.yml, tags: ['opencv_install'] }

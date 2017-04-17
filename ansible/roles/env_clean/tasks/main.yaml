@@ -1,0 +1,15 @@
+---
+#tasks to clean the environment
+ - name: Delete Cluster
+   become_user: '{{ local_user_name }}'
+   command: cm cluster delete --all
+
+ - name: Undefine Cluster
+   become_user: '{{ local_user_name }}'
+   command: cm cluster undefine --all
+
+ - name: Clean Hadoop Stack
+   become_user: '{{ local_user_name }}'
+   file:
+    state: absent
+    path: "{{ local_home }}{{ hadoop_stack_path }}"

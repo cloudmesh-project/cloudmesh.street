@@ -1,0 +1,5 @@
+---
+#variables for environment clean tasks
+local_home: "{{ lookup('env','HOME') }}"
+local_user_name: "{{ lookup('env','USER') }}"
+hadoop_stack_path: "/.cloudmesh/stacks/"
