@@ -9,6 +9,8 @@ sudo apt-get install ansible
 echo '###########################################################################################'
 echo '##### STEP 2 : Setup Local Environment for Cloudmesh_Client and setup hadoop cluster ######'
 echo '###########################################################################################'
+rm hosts
+touch hosts
 ansible-playbook env_setup.yaml --ask-sudo-pass -v
 echo '##########################################################################################'
 echo '####################### STEP 3 : Add newly created vms to host ############################'
@@ -18,8 +20,13 @@ chmod u+x host_edit.sh
 echo '###########################################################################################'
 echo '####################### STEP 4 : Configure Cluster Nodes for OpenCV #######################'
 echo '###########################################################################################'
+rm /home/rahul/.ssh/known_hosts
+touch /home/rahul/.ssh/known_hosts
 ansible-playbook opencv_setup.yaml -i hosts --ask-sudo-pass -v
 echo '###########################################################################################'
+echo '####################### STEP 5 : Run the sign_detection Spark Job #########################'
+echo '###########################################################################################'
+#ansible-playbook sign_detection_analysis.yaml -i inventory --ask-sudo-pass -v
 echo '######################################### The END #########################################'
 echo '###########################################################################################'
 

@@ -1,0 +1,46 @@
+---
+# tasks file for analysis
+- name: Install IMUtils 
+  become: true      
+  pip: name=IMUtils state=latest
+
+- name: Check if the folder exists
+  stat: path=/opencv_workspace/
+  register: dir_flag
+
+- name: Copy code files from local to master
+  copy: src={{ item }} dest=/opencv_workspace/code/
+  with_fileglob:
+     - files/code/test*.py
+     - files/code/sign*.py
+  when: dir_flag.stat.exists == false
+
+- name: Copy input files images from local to master
+  copy: src={{ item }} dest=/opencv_workspace/test_data/images/
+  with_fileglob:
+     - files/test_data/images/*.*
+  when: dir_flag.stat.exists == false
+
+- name: Copy video from local to master
+  copy: src={{ item }} dest=/opencv_workspace/code/
+  with_fileglob:
+     - files/test_data/videos/*.*
+  when: dir_flag.stat.exists == false
+
+- name: Copy stop sign classifier from local to master
+  copy: src={{ item }} dest=/opencv_workspace/classifier/
+  with_fileglob:
+     - files/classifier/*.*
+  when: dir_flag.stat.exists == false
+
+- name: Create directory for output files
+  become: yes
+  file: path=/opencv_workspace/output state=directory mode=0777
+  when: dir_flag.stat.exists == false
+
+- name: Run the spark-job
+  become: true
+  shell: |
+     su - hadoop -c "hdfs dfs -mkdir /opencv_workspace/"
+     su - hadoop -c "hdfs dfs -put /opencv_workspace/test_data/ /opencv_workspace/"
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py  hdfs://192.168.0.48:8020/opencv_workspace/test_data/images/ hdfs://192.168.0.48:8020/opencv_workspace/output/"

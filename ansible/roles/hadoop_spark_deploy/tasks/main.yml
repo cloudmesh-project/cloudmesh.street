@@ -24,3 +24,7 @@
  - name: deploy hadoop cluster
    become_user: '{{ local_user_name }}'
    shell: cm hadoop deploy
+
+ - name: establish connectivity between nodes
+   become_user: '{{ local_user_name }}'
+   shell: cm cluster cross_ssh
