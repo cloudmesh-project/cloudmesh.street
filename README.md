@@ -6,20 +6,41 @@
 
 #### STEP 2: After getting local copy, Go to directory 'ansible'
 
-#### STEP 3: To install ansible, cloudmesh client for the first-time run script 'install_ansible_cloudmesh_client.sh' with following comnmand:
+#### STEP 3: To install ansible, cloudmesh client for the first-time:
+   (Note: Skip if already installed )
+   
+##### 3.1 Edit ansible/roles/local_machine_setup/vars/main.yaml
 
-./install_ansible_cloudmesh_client.sh
+    First_Name: <First_name>
+    Last_Name: <Last_name>
+    User_Email_Id: <your email id>
+
+##### 3.2 Edit ansible/env_setup.yaml as follow:
+   ---
+     - hosts: localhost
+       become: true
+       roles:
+           - local_machine_setup
+           #- cloud_cluster_setup
+           #- hadoop_spark_deploy
+    
+
+##### 3.3 Run playbook 'env_setup.yaml' with followings comnmand in ansible folder:
+ 
+    rm hosts
+    touch hosts
+    ansible-playbook env_setup.yaml --ask-sudo-pass -v
 
 #### STEP 4
 ##### 4.1 Open ~/.cloudmesh/cloudmesh.yaml and edit the following sections, edit <''>/ <TBD> in the file correct credentials:
 
-     profile:
+    profile:
            firstname: <first name>
            lastname: <last name>
            email: <email id>
            user: <chameleon/jetsream/other cloud username>
 
-##### 4.2 Change the entry of active cloud for the one you need,For e.g. chameleon cloud as shown below:
+##### 4.2 Change the entry of active cloud for the one you need,For e.g. chameleon cloud as shown below
 
     active:
       - chameleon
@@ -42,10 +63,17 @@ Chameleon Example:
     default:
             flavor: m1.medium
             image: CC-Ubuntu14.04
+### Define cluster and deploy Hadoop with addons like spark over cluster
 
-#### STEP 5: Run the cloud_cluster_setup.yaml 
+#### STEP 5: Run the env_setup.yaml playbook with following change:
 
-
+   ---
+     - hosts: localhost
+       become: true
+       roles:
+           #- local_machine_setup
+           - cloud_cluster_setup
+           - hadoop_spark_deploy
 
 #### STEP 6: Run the 'host_edit.sh' script to update hosts with IPS of all three deployed VMS: 
   (Note: On the cluster, first node becomes master)
@@ -54,8 +82,10 @@ Chameleon Example:
     ./hosts_edit.sh
     ```
 
-#### STEP7: Run 'hadoop_deploy' playbook to deploy hadoop with addons spark,pig:
-
+#### STEP 7: OpenCV setup on cluster nodes:
+	rm /home/rahul/.ssh/known_hosts
+	touch /home/rahul/.ssh/known_hosts
+	ansible-playbook opencv_setup.yaml -i hosts --ask-sudo-pass -v
 
 
 #### STEP8: 
