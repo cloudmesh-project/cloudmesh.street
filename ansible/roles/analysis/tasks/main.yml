@@ -1,9 +1,5 @@
 ---
 # tasks file for analysis
-- name: Install IMUtils 
-  become: true      
-  pip: name=IMUtils state=latest
-
 - name: Check if the folder exists
   stat: path=/opencv_workspace/
   register: dir_flag

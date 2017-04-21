@@ -26,7 +26,7 @@ ansible-playbook opencv_setup.yaml -i hosts --ask-sudo-pass -v
 echo '###########################################################################################'
 echo '####################### STEP 5 : Run the sign_detection Spark Job #########################'
 echo '###########################################################################################'
-#ansible-playbook sign_detection_analysis.yaml -i inventory --ask-sudo-pass -v
+ansible-playbook detection.yaml -i inventory --ask-sudo-pass -v
 echo '######################################### The END #########################################'
 echo '###########################################################################################'
 

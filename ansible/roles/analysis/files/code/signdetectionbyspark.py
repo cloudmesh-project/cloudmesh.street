@@ -3,6 +3,7 @@ import imutils
 from imutils import paths
 from pyspark import SparkContext, SparkConf
 import cv2
+import matplotlib.pyplot as plt
 import numpy
 import sys
 
@@ -34,4 +35,6 @@ if __name__== "__main__":
 	count = 1
 	for img in result:
 		# show objects on street image
-		cv2.imwrite(outputDir+str(count)+'.jpg', img)
+		plt.figure()
+	        plt.axis("off")
+                plt.imsave(outputDir+str(count)+'.jpg',cv2.cvtColor(img, cv2.COLOR_BGR2RGB))

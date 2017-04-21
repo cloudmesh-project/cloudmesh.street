@@ -22,6 +22,9 @@ image_packages:
   - libtiff-dev
 # python bindings
 python_bindings:
+  - IMUtils
+  - tk
+  - python-matplotlib
   - python-dev
   - python-numpy
   - libtbb2
