@@ -37,6 +37,4 @@
 - name: Run the spark-job
   become: true
   shell: |
-     su - hadoop -c "hdfs dfs -mkdir /opencv_workspace/"
-     su - hadoop -c "hdfs dfs -put /opencv_workspace/test_data/ /opencv_workspace/"
-     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py  hdfs://192.168.0.48:8020/opencv_workspace/test_data/images/ hdfs://192.168.0.48:8020/opencv_workspace/output/"
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py  /opencv_workspace/test_data/images/ /opencv_workspace/output/"

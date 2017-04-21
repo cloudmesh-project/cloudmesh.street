@@ -21,7 +21,11 @@
   apt: "name='{{ item }}' state=installed update_cache=yes"
   with_items: '{{ python_bindings }}'
 
-- name: Install python bindings
+- name: Install packages using pip
+  sudo: yes
+  pip: name=IMUtils state=latest
+
+- name: Install opencv_dev_libs
   sudo: yes
   apt: "name='{{ item }}' state=installed update_cache=yes"
   with_items: '{{ open_cv_dev_lib }}'

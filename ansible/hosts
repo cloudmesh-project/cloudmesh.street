@@ -1,4 +1,4 @@
 [all_nodes]
-129.114.33.147 ansible_ssh_user=cc
-129.114.110.83 ansible_ssh_user=cc
-129.114.33.60 ansible_ssh_user=cc
+129.114.33.88 ansible_ssh_user=cc
+129.114.33.236 ansible_ssh_user=cc
+129.114.33.150 ansible_ssh_user=cc
