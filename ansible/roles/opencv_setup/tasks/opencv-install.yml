@@ -1,7 +1,7 @@
 ---
 # OpenCV setup on remote machines
 
-- name: Install local dependencies
+- name: Install dependencies
   sudo: yes
   apt: "name='{{ item }}' state=installed update_cache=yes"
   with_items: '{{ local_packages }}'

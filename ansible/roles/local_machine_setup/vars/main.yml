@@ -4,7 +4,6 @@ local_packages:
           - python-setuptools
           - python-pip
           - expect
-          - git
           - build-essential
           - libpam-umask
           - libssl-dev

@@ -5,4 +5,3 @@
      - local_machine_setup
      - cloud_cluster_setup
      - hadoop_spark_deploy
-     #- env_clean

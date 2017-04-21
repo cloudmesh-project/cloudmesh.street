@@ -1,6 +1,6 @@
 ---
 #tasks for local machine cloudmesh environment setup
-     - name: update/upgrade
+     - name: update/upgrade machine
        apt: update-cache=yes upgrade=dist
 
      - name: install build_essentials       
@@ -9,12 +9,6 @@
 
      - name: pip upgrade
        command: pip install --upgrade pip
-
-     - name: git_config
-       become_user: '{{ local_user_name }}'
-       shell: |
-          git config --global user.name "{{ First_Name }} {{ Last_Name }}"
-          git config --global user.email {{ User_Email_Id }}
 
      - name: install python-dependency packages       
        action: pip name={{item}} state=present
@@ -37,20 +31,25 @@
        pip: name=cloudmesh_client state=latest
        when: cloudmesh_flag.stat.exists == false
 
-     - name: cm reset
+     - name: create cloudmesh.yaml configuration file      
+       become_user: '{{ local_user_name }}'
+       command: cm setup
+       when: cloudmesh_flag.stat.exists == false
+
+     - name: cm reset for upgrading cloudmesh_client
        become_user: '{{ local_user_name }}'
        command: cm reset
        when: cloudmesh_flag.stat.exists == true
 
-     - name: Upgrade cloudmesh_client       
+     - name: Uninstall cloudmesh_client  for re-install      
        pip: name=cloudmesh_client state=absent
        when: cloudmesh_flag.stat.exists == true
 
-     - name: install
+     - name: install latest version of cloudmesh_client
        pip: name=cloudmesh_client state=latest
        when: cloudmesh_flag.stat.exists == true
 
-     - name: ssh key_check       
+     - name: ssh key_check check for future authentication requirement      
        stat: path={{ local_home }}{{ key_path }}
        register: ssh_key_pub_flag
 

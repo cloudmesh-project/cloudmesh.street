@@ -16,7 +16,7 @@
    become_user: '{{ local_user_name }}'
    command: cm hadoop avail
 
- - name: hadoop sync from github
+ - name: hadoop stack sync from github
    become_user: '{{ local_user_name }}'
    shell: |
       cm hadoop sync
