@@ -34,4 +34,4 @@ if __name__== "__main__":
 	count = 1
 	for img in result:
 		# show objects on street image
-		cv2.imwrite(outputDir +count+'.jpg', image)
+		cv2.imwrite(outputDir +count+'.jpg', img)
