@@ -1,2 +1,8 @@
 ---
 # vars file for analysis
+workspace: /opencv_workspace/
+code_dir: /opencv_workspace/code/
+test_images: /opencv_workspace/test_data/images/
+test_videos: /opencv_workspace/test_data/videos/
+classifier_dir: /opencv_workspace/classifier/
+output_dir: /opencv_workspace/output

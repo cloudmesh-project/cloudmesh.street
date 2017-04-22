@@ -36,6 +36,6 @@ open_cv_dev_lib:
   - python-opencv
   - python-pip
 
-git_repo_path: https://github.com/Itseez/opencv.git
+#git_repo_path: https://github.com/Itseez/opencv.git
 opencv_workspace: "/opencv_workspace/"
   

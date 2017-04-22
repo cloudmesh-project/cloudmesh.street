@@ -5,4 +5,4 @@ count: 3
 addons: "spark pig"
 local_home: "{{ lookup('env','HOME') }}"
 local_user_name: "{{ lookup('env','USER') }}"
-stack: "stack-00{{ lookup('env','stack_no') }}"
+#stack: "stack-00{{ lookup('env','stack_no') }}"

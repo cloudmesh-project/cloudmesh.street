@@ -32,6 +32,6 @@ rsa_pub_path: "/.ssh/id_rsa"
 key_path: "/.ssh/id_rsa.pub"
 python_path: "/usr/bin/python"
 local_user_name: "{{ lookup('env','USER') }}"
-First_Name: Rahul
-Last_Name: Raghatate
-User_Email_Id: rvraghatate10@gmail.com
+#First_Name: Rahul
+#Last_Name: Raghatate
+#User_Email_Id: rvraghatate10@gmail.com

@@ -14,14 +14,6 @@
        action: pip name={{item}} state=present
        with_items: '{{ local_pip_packages }}'
 
-     - name: Manually create the initial virtualenv
-       command: virtualenv -p {{ python_path }} {{ local_home }}/ENV
-
-     - name: start virtualenv
-       shell: source {{ local_home }}{{ virtual_env_activate }}
-       args:
-         executable: /bin/bash
-
      - name: Check if cloudmesh directory already exists       
        become_user: '{{ local_user_name }}'
        stat: path={{ cm_path }}

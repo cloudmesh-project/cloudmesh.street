@@ -1,7 +1,7 @@
 ---
 # Variables for cloud_cluster_setup
-cloud: chameleon
-username: rraghata
+cloud: <TBD cloud>
+username: <TBD username>
 key_path: "/.ssh/id_rsa.pub"
 local_user_name: "{{ lookup('env','USER') }}"
 local_home: "{{ lookup('env','HOME') }}"

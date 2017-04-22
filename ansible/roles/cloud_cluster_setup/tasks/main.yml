@@ -10,7 +10,7 @@
 
  - name: add key to cloudmesh database
    become_user: '{{ local_user_name }}'
-   command: cm key add rraghata --source={{ local_home}}{{ key_path }}
+   command: cm key add {{ username }} --source={{ local_home}}{{ key_path }}
 
  - name: set default cloud
    become_user: '{{ local_user_name }}'
@@ -28,10 +28,10 @@
    become_user: '{{ local_user_name }}'
    command: cm key upload
 
- - name: upload security group setting to cloud server
-   become_user: '{{ local_user_name }}'
-   command: cm secgroup upload
-
  - name: check security group setting
    become_user: '{{ local_user_name }}'
    command: cm secgroup list
+
+ - name: upload security group setting to cloud server
+   become_user: '{{ local_user_name }}'
+   command: cm secgroup upload
