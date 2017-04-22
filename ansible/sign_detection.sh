@@ -7,7 +7,7 @@ echo '############################### STEP 1 : Install Ansible #################
 echo '###########################################################################################'
 sudo apt-get install ansible
 echo '###########################################################################################'
-echo '##### STEP 2 : Setup Local Environment for Cloudmesh_Client and setup hadoop cluster ######'
+echo '##### STEP 2 : Setup Local Environment for Cloudmesh_Client and setup spark cluster #######'
 echo '###########################################################################################'
 rm hosts
 touch hosts
@@ -20,13 +20,17 @@ chmod u+x host_edit.sh
 echo '###########################################################################################'
 echo '####################### STEP 4 : Configure Cluster Nodes for OpenCV #######################'
 echo '###########################################################################################'
-rm /home/rahul/.ssh/known_hosts
-touch /home/rahul/.ssh/known_hosts
+rm $HOME/.ssh/known_hosts
+touch $HOME/.ssh/known_hosts
 ansible-playbook opencv_setup.yaml -i hosts --ask-sudo-pass -v
 echo '###########################################################################################'
 echo '####################### STEP 5 : Run the sign_detection Spark Job #########################'
 echo '###########################################################################################'
 ansible-playbook detection.yaml -i inventory --ask-sudo-pass -v
+echo '###########################################################################################'
+echo '####################### STEP 6 : transfer output from remote to local machine #############'
+echo '###########################################################################################'
+ansible-playbook transfer_output_to_local.yaml -i inventory --ask-sudo-pass -v
 echo '######################################### The END #########################################'
 echo '###########################################################################################'
 

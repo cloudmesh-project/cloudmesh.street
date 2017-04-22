@@ -1,0 +1,8 @@
+---
+ - hosts: master
+   become: true
+   tasks:
+     - name: Fetch output from the remote and save to local
+       synchronize: src={{ item }} dest=output/ mode=pull rsync_path="sudo rsync"
+       with_items:
+          - "/opencv_workspace/output"

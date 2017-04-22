@@ -4,6 +4,11 @@
   stat: path=/opencv_workspace/
   register: dir_flag
 
+- name: Delete opencv_workspace if exists
+  become: yes
+  file: path=/opencv_workspace state=absent
+  when: dir_flag.stat.exists == true
+
 - name: Copy code files from local to master
   copy: src={{ item }} dest=/opencv_workspace/code/
   with_fileglob:
@@ -18,9 +23,9 @@
   when: dir_flag.stat.exists == false
 
 - name: Copy video from local to master
-  copy: src={{ item }} dest=/opencv_workspace/code/
+  copy: src={{ item }} dest=/opencv_workspace/test_data/videos/
   with_fileglob:
-     - files/test_data/videos/*.*
+     - files/test_data/videos/*
   when: dir_flag.stat.exists == false
 
 - name: Copy stop sign classifier from local to master
@@ -37,4 +42,4 @@
 - name: Run the spark-job
   become: true
   shell: |
-     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py  /opencv_workspace/test_data/images/ /opencv_workspace/output/"
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/images/ /opencv_workspace/output/"
