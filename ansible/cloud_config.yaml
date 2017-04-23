@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: true
+  vars_files:
+    - roles/cloud_cluster_setup/vars/main.yml
+  vars_prompt:
+    - name: "cloud"
+      prompt: "enter the cloudname"
+      default: chameleon
+
+    - name: "username"
+      prompt: "enter the key_name,preferably cloud_username"
+      default: TBD
+
+  roles:
+    - cloud_cluster_setup

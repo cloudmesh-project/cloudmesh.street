@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: true
+  vars_files:
+    - roles/hadoop_spark_deploy/vars/main.yml
+    - roles/inventory/vars/main.yml
+  vars_prompt:
+    - name: "image_name"
+      prompt: "enter image_name:"
+      default: "CC-Ubuntu14.04"
+    - name: "count"
+      prompt: "enter the no. of nodes:"
+      default: "3"
+    - name: "flavor"
+      prompt: "enter the flavor requried:"
+      default: "m1.medium"
+    - name: "addons"
+      prompt: "enter the addons required"
+      default: "spark pig"
+  roles:
+    - hadoop_spark_deploy
+    - inventory

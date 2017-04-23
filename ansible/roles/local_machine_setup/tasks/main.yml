@@ -1,7 +1,7 @@
 ---
 #tasks for local machine cloudmesh environment setup
-     - name: update/upgrade machine
-       apt: update-cache=yes upgrade=dist
+     #- name: update/upgrade machine
+     #  apt: update-cache=yes upgrade=dist
 
      - name: install build_essentials       
        apt: name={{item}} state=present update_cache=yes
@@ -19,7 +19,8 @@
        stat: path={{ cm_path }}
        register: cloudmesh_flag
 
-     - name: Install cloudmesh_client       
+     - name: Install cloudmesh_client
+       become_user: '{{ local_user_name }}'
        pip: name=cloudmesh_client state=latest
        when: cloudmesh_flag.stat.exists == false
 

@@ -1,5 +1,5 @@
 ---
-- hosts: all_nodes
+- hosts: remote
   remote_user: true
   roles:
     - remote_vms_update

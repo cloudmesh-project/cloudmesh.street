@@ -1,7 +1,7 @@
 ---
  - hosts: localhost
    become: true
+   vars_files:
+     - roles/local_machine_setup/vars/main.yml
    roles:
      - local_machine_setup
-     - cloud_cluster_setup
-     - hadoop_spark_deploy

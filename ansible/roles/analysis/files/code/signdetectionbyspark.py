@@ -41,5 +41,5 @@ if __name__== "__main__":
                 #plt.imsave(outputDir+str(count)+'.jpg',cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 		cv2.imwrite(outputDir+str(count)+'.jpg',img)
                 count = count+1
-		if count == 5
-			exit(0)
+		if (count == 51):
+		   break

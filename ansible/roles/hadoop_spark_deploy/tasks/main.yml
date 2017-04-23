@@ -2,7 +2,7 @@
 #tasks to deploy hadoop and Spark cluster
  - name: define cluster
    become_user: '{{ local_user_name }}'
-   command: cm cluster define --count {{ count }} --image {{ image_name }}
+   command: cm cluster define --count {{ count }} --image "{{ image_name }}" --flavor "{{ flavor }}"
 
  - name: define hadoop stack
    become_user: '{{ local_user_name }}'
@@ -18,8 +18,7 @@
 
  - name: hadoop stack sync from github
    become_user: '{{ local_user_name }}'
-   shell: |
-      cm hadoop sync
+   shell: cm hadoop sync
 
  - name: deploy hadoop cluster
    become_user: '{{ local_user_name }}'
