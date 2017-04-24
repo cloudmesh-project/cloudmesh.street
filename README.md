@@ -4,34 +4,63 @@
 
     git clone https://github.com/cloudmesh/cloudmesh.street.git 
 
-#### STEP 2: After getting local copy, Go to directory 'ansible'
+#### STEP 2: After getting local copy of the git repository, Go to directory './code/scripts'
 
 #### STEP 3: To install ansible, cloudmesh client for the first-time:
-   (Note: Skip if already installed )
-   
-##### 3.1 Edit ansible/roles/local_machine_setup/vars/main.yaml
+     (Note: Skip 3.1 if already installed )
+##### 3.1 Run the script local_setup.sh from ./code/scripts folder:
 
-    First_Name: <First_name>
-    Last_Name: <Last_name>
-    User_Email_Id: <your email id>
+    . setup.sh 
 
-##### 3.2 Edit ansible/env_setup.yaml as follow:
-   ---
-     - hosts: localhost
-       become: true
-       roles:
-           - local_machine_setup
-           #- cloud_cluster_setup
-           #- hadoop_spark_deploy
+The above script when runs uses playbook--> ansible/local_setup.yaml
+
+##### 3.2 Run the script configure.sh from  ./code/scripts folder:
     
+    . configure.sh
 
-##### 3.3 Run playbook 'env_setup.yaml' with followings comnmand in ansible folder:
- 
-    rm hosts
-    touch hosts
-    ansible-playbook env_setup.yaml --ask-sudo-pass -v
+The above script when runs uses playbook--> ansible/cloud_config.yaml and ask for user input for following fields:
+    
+    enter the cloudname[chameleon]:
+    enter the key_name,preferably cloud_username[TBD]:
+	
 
+##### 3.3 Run the script deploy.sh from  ./code/scripts folder:
+    
+    . deploy.sh
+
+The above script when runs ,uses playbook--> ansible/hadoop_deploy.yaml and ask for user input for following fields:
+    
+    enter image_name[CC-Ubuntu14.04]:
+    enter the no. of nodes[3]:
+    enter the flavor requried[m1.medium]:  
+    enter the addons required[spark pig]:
+    
+##### 3.4 Run the script opencv_setup.sh from  ./code/scripts folder:
+    
+    . opencv_setup.sh
+
+The above script when runs ,uses playbook--> ansible/opencv_setup.yaml and ask for user input for following fields:
+
+##### 3.5 Run the script sifn_detection.sh from  ./code/scripts folder:
+    
+    . sign_detection.sh
+
+The above script when runs ,uses playbook--> ansible/sign_detection.yaml and ask for user input for following fields:
+
+##### 3.6 Run the script transfer.sh from  ./code/scripts folder:
+    
+    . transfer.sh
+
+The above script when runs ,uses playbook--> ansible/transfer_output_to_local.yaml and ask for user input for following fields:
+    
+##### 3.7 Run the script clean.sh from  ./code/scripts folder:
+    
+    . clean.sh
+    
+The above script when runs ,uses playbook--> ask for user input for following fields:
+    
 #### STEP 4
+
 ##### 4.1 Open ~/.cloudmesh/cloudmesh.yaml and edit the following sections, edit <''>/ <TBD> in the file correct credentials:
 
     profile:
