@@ -1,0 +1,41 @@
+Benchmark jetstream 1vms m1.medium 4images
+time_for_local_setup 0
+time_for_cloud_setup 36
+time_for_hadoop_deploy 815
+time_for_opencv_setup 299
+time_for_sign_detection 96
+time_for_data_transfer 23
+time_for_env_cleanup 10
+
+
+Benchmark jetstream 2vms m1.medium 4images
+time_for_local_setup 0
+time_for_cloud_setup 39
+time_for_hadoop_deploy 798
+time_for_opencv_setup 247
+time_for_sign_detection 94
+time_for_data_transfer 21
+time_for_env_cleanup 11
+ 
+
+Benchmark jetstream 1vms m1.medium 4images
+time_for_local_setup 0
+time_for_cloud_setup 34
+time_for_hadoop_deploy 872
+time_for_opencv_setup 278
+time_for_sign_detection 496
+time_for_data_transfer 25
+time_for_env_cleanup 9
+ 
+  
+Benchmark jetstream 2vms m1.medium 50images
+time_for_local_setup 0
+time_for_cloud_setup 32
+time_for_hadoop_deploy 811
+time_for_opencv_setup 256
+time_for_sign_detection 426
+time_for_data_transfer 29
+time_for_env_cleanup 10
+ 
+ 
+
