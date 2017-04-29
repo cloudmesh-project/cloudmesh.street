@@ -4,9 +4,17 @@
 
 cd $HOME/github/cloudmesh.street/ansible
 
+
+#Turn off SSH authenticity checking
+export ANSIBLE_HOST_KEY_CHECKING=false
+	
+#Supress warnings
+export ANSIBLE_DEPRECATION_WARNINGS=false
+export ANSIBLE_COMMAND_WARNINGS=false
+
 #Clean local output directory before running
 rm -r ansible/output
 
 #Run the output data transfer playbook:
-ansible-playbook transfer_output_to_local.yaml -i inv --ask-sudo-pass -vvv
+ansible-playbook transfer_output_to_local.yaml -i inv -v
 

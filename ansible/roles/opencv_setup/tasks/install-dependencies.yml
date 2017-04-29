@@ -1,5 +1,7 @@
 ---
-- apt: name=python-pip state=installed
-  sudo: yes
-- pip: name=httplib2
-  sudo: yes
+- name: install python-pip
+  apt: name=python-pip state=installed
+  become: yes
+- name: install httplib2 as dependency
+  pip: name=httplib2
+  become: yes

@@ -4,6 +4,13 @@
 
 cd $HOME/github/cloudmesh.street/ansible
 
+#Turn off SSH authenticity checking
+export ANSIBLE_HOST_KEY_CHECKING=false
+	
+#Supress warnings
+export ANSIBLE_DEPRECATION_WARNINGS=false
+export ANSIBLE_COMMAND_WARNINGS=false
+
 #Run ansible playbook:
 
-ansible-playbook sign_detection.yaml -i inv --ask-sudo-pass -vvv
+ansible-playbook sign_detection.yaml -i inv -v

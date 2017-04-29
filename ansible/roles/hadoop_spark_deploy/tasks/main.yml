@@ -1,29 +1,25 @@
 ---
 #tasks to deploy hadoop and Spark cluster
+ - name: include user defined variables
+   include_vars: user_vars.yaml
+
  - name: define cluster
-   become_user: '{{ local_user_name }}'
    command: cm cluster define --count {{ count }} --image "{{ image_name }}" --flavor "{{ flavor }}"
 
  - name: define hadoop stack
-   become_user: '{{ local_user_name }}'
    command: cm hadoop define {{ addons }}
 
  - name: check defined cluster
-   become_user: '{{ local_user_name }}'
    command: cm cluster avail
 
  - name: check defined hadoop stack
-   become_user: '{{ local_user_name }}'
    command: cm hadoop avail
 
  - name: hadoop stack sync from github
-   become_user: '{{ local_user_name }}'
    shell: cm hadoop sync
 
  - name: deploy hadoop cluster
-   become_user: '{{ local_user_name }}'
    shell: cm hadoop deploy
 
  - name: establish connectivity between nodes
-   become_user: '{{ local_user_name }}'
    shell: cm cluster cross_ssh

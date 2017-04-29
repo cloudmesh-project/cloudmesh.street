@@ -1,0 +1,16 @@
+---
+###############################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS###############
+cloud: "chameleon"
+username: "rraghata" # key_name to be uploaded
+############HADOOP CLUSTER SETTINGS############
+image_name: "CC-Ubuntu14.04"
+count: "3"
+flavor: "m1.medium"
+addons: "spark pig"
+
+###############################################
