@@ -1,0 +1,46 @@
+---
+# tasks file for analysis
+- name: Check if the folder exists
+  stat: path={{workspace}}
+  register: dir_flag
+
+- name: Delete opencv_workspace if exists
+  become: yes
+  file: path={{workspace}} state=absent
+  when: dir_flag.stat.exists == true
+
+- name: Copy code files from local to master
+  copy: src={{ item }} dest={{code_dir}}
+  with_fileglob:
+     - files/code/test*.py
+     - files/code/sign*.py
+  when: dir_flag.stat.exists == false
+
+- name: Copy input files images from local to master
+  copy: src={{ item }} dest={{test_images}}
+  with_fileglob:
+     - files/test_data/images/*
+  when: dir_flag.stat.exists == false
+
+- name: Copy video from local to master
+  copy: src={{ item }} dest={{test_videos}}
+  with_fileglob:
+     - files/test_data/videos/*
+  when: dir_flag.stat.exists == false
+
+- name: Copy stop sign classifier from local to master
+  copy: src={{ item }} dest={{classifier_dir}}
+  with_fileglob:
+     - files/classifier/*.*
+  when: dir_flag.stat.exists == false
+
+- name: Create directory for output files
+  become: yes
+  file: path={{output_dir}} state=directory mode=0777
+  when: dir_flag.stat.exists == false
+
+- name: Run the spark-job
+  become: true
+  shell: |
+     chown -R 777 {{workspace}}
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/images/ /opencv_workspace/output/"

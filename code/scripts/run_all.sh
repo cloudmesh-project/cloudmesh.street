@@ -19,5 +19,5 @@ echo "data transfer between remote and local machine"
 ./transfer.sh
 
 echo "environment clean" 
-./clean.sh
+#./clean.sh
 

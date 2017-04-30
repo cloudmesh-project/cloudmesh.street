@@ -12,8 +12,8 @@
 - name: Copy code files from local to master
   copy: src={{ item }} dest={{code_dir}}
   with_fileglob:
-     - files/code/test*.py
-     - files/code/sign*.py
+     - files/code/*.py
+#     - files/code/sign*.py
   when: dir_flag.stat.exists == false
 
 - name: Copy input files images from local to master
@@ -39,8 +39,13 @@
   file: path={{output_dir}} state=directory mode=0777
   when: dir_flag.stat.exists == false
 
+- name: Create directory for video2image files
+  become: yes
+  file: path={{video2image_dir}} state=directory mode=0777
+  when: dir_flag.stat.exists == false
+
 - name: Run the spark-job
   become: true
   shell: |
      chown -R 777 {{workspace}}
-     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/images/ /opencv_workspace/output/"
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 512 --num-executors 2 --driver-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/videos/ /opencv_workspace/output/"

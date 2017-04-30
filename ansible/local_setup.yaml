@@ -1,6 +1,5 @@
 ---
  - hosts: localhost
-   become: true
    vars_files:
      - roles/local_machine_setup/vars/main.yml
    roles:

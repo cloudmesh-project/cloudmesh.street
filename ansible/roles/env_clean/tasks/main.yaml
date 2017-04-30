@@ -10,3 +10,8 @@
    file:
     state: absent
     path: "{{ local_home }}{{ hadoop_stack_path }}"
+
+ - name: Clean Output
+   file:
+    state: absent
+    path: "{{local_home}}{{ output_path}}"

@@ -16,6 +16,6 @@ echo '' > inv
 
 #Run ansible playbook:
 
-ansible-playbook hadoop_deploy.yaml -v
+ansible-playbook hadoop_deploy.yaml -i inv -v
 rm $HOME/.ssh/known_hosts
 touch $HOME/.ssh/known_hosts

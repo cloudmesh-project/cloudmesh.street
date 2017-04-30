@@ -3,3 +3,4 @@
 local_home: "{{ lookup('env','HOME') }}"
 local_user_name: "{{ lookup('env','USER') }}"
 hadoop_stack_path: "/.cloudmesh/stacks/"
+output_path: "github/cloudmesh.client/ansible/output/"

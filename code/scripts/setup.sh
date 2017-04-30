@@ -13,6 +13,6 @@ export ANSIBLE_COMMAND_WARNINGS=false
 
 #Run ansible playbook:
 
-ansible-playbook local_setup.yaml -v
+ansible-playbook local_setup.yaml -i inv -v
 
 

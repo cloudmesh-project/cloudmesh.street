@@ -10,7 +10,7 @@ username: "rraghata" # key_name to be uploaded
 ############HADOOP CLUSTER SETTINGS############
 image_name: "CC-Ubuntu14.04"
 count: "3"
-flavor: "m1.medium"
-addons: "spark pig"
+flavor: "m1.large"
+addons: "spark"
 
 ###############################################

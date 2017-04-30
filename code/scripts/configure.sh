@@ -13,6 +13,6 @@ export ANSIBLE_COMMAND_WARNINGS=false
 
 #Run ansible playbook:
 
-ansible-playbook cloud_config.yaml -v
+ansible-playbook cloud_config.yaml -i inv -v
 
 
