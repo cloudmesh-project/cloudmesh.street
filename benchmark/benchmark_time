@@ -10,3 +10,17 @@ time_for_data_transfer 0
 time_for_env_cleanup 0
  
 
+ 
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 0
+time_for_hadoop_deploy 0
+time_for_opencv_setup 0
+time_for_sign_detection 0
+time_for_data_transfer 0
+time_for_env_cleanup 0
+ 
+ 
+Benchmark
+time_for_local_setup 0

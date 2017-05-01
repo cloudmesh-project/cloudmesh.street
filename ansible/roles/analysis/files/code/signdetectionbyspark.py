@@ -33,7 +33,7 @@ if __name__== "__main__":
         if (imageDir != '/opencv_workspace/test_data/images/'):
                 imageDir = video2image(imageDir)
                 print(imageDir)
-	pd = sc.parallelize(paths.list_images(imageDir),2)
+	pd = sc.parallelize(paths.list_images(imageDir),100)
 	pdc = pd.map(process_images)
 	result = pdc.collect()
         
@@ -42,5 +42,5 @@ if __name__== "__main__":
 		# save the output to jpg files
 		cv2.imwrite(outputDir+str(count)+'.jpg',img)
                 count = count+1
-		if (count >150):
+		if (count >len(result)):
 		   break
