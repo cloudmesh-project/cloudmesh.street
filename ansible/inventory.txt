@@ -1,11 +1,8 @@
 [localhost]
 localhost ansible_connection=local
 [remote]
-rraghata-055 ansible_ssh_host="129.114.33.8" ansible_ssh_user="cc"
-rraghata-056 ansible_ssh_host="129.114.33.98" ansible_ssh_user="cc"
-rraghata-057 ansible_ssh_host="129.114.32.247" ansible_ssh_user="cc"
-rraghata-058 ansible_ssh_host="129.114.33.95" ansible_ssh_user="cc"
-rraghata-059 ansible_ssh_host="129.114.110.127" ansible_ssh_user="cc"
-rraghata-060 ansible_ssh_host="129.114.33.229" ansible_ssh_user="cc"
+rraghata-061 ansible_ssh_host="129.114.33.8" ansible_ssh_user="cc"
+rraghata-062 ansible_ssh_host="129.114.33.98" ansible_ssh_user="cc"
+rraghata-063 ansible_ssh_host="129.114.32.247" ansible_ssh_user="cc"
 [master]
-rraghata-055 ansible_ssh_host="129.114.33.8" ansible_ssh_user="cc"
+rraghata-061 ansible_ssh_host="129.114.33.8" ansible_ssh_user="cc"
