@@ -1,7 +1,0 @@
-time_for_cloud_setup 37
-time_for_hadoop_deploy 16303
-time_for_opencv_setup 2
-time_for_sign_detection 0
-time_for_data_transfer 1
-time_for_env_cleanup 0
-time_for_cloud_setup 47

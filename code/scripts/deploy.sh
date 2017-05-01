@@ -17,5 +17,6 @@ echo '' > inventory.txt
 #Run ansible playbook:
 
 ansible-playbook -i inventory.txt hadoop_deploy.yaml -v
+
 rm $HOME/.ssh/known_hosts
 touch $HOME/.ssh/known_hosts

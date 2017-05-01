@@ -33,7 +33,7 @@ if __name__== "__main__":
         if (imageDir != '/opencv_workspace/test_data/images/'):
                 imageDir = video2image(imageDir)
                 print(imageDir)
-	pd = sc.parallelize(paths.list_images(imageDir),100)
+	pd = sc.parallelize(paths.list_images(imageDir),60)
 	pdc = pd.map(process_images)
 	result = pdc.collect()
         

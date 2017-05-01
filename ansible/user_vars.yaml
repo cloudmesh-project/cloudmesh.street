@@ -1,16 +1,26 @@
 ---
-###############################################
+############################################################
 #Variables for execution of complete package
 
 #EDIT FOLLOWING DETAILS AS PER REQUIREMENT
 
-##############CLOUDMESH SETTINGS###############
-cloud: "chameleon"
-username: "rraghata" # key_name to be uploaded
-############HADOOP CLUSTER SETTINGS############
-image_name: "CC-Ubuntu14.04"
-count: "3"
-flavor: "m1.large"
+##############CLOUDMESH SETTINGS############################
+
+#cloud: "chameleon" or "jetstream"
+cloud: <TBD>
+#username: "cloudmesh username as key_name"
+username: <TBD>
+
+############HADOOP CLUSTER SETTINGS#########################
+#Chameleon image_name: CC-Ubuntu14.04
+#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
+#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
+#addons: spark pig hive
+
+
+image_name: <TBD>
+count: <TBD>
+flavor: <TBD>
 addons: "spark"
 
-###############################################
+############################################################

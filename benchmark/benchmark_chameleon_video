@@ -1,0 +1,288 @@
+
+
+---
+###############################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS###############
+cloud: "chameleon"
+username: "snehalc" # key_name to be uploaded
+############HADOOP CLUSTER SETTINGS############
+image_name: "CC-Ubuntu14.04"
+count: "1"
+flavor: "m1.large"
+addons: "spark"
+
+###############################################
+
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 41
+time_for_hadoop_deploy 530
+time_for_opencv_setup 215
+time_for_sign_detection 107
+time_for_data_transfer 35
+time_for_env_cleanup 0
+
+ 
+---
+###############################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS###############
+cloud: "chameleon"
+username: "snehalc" # key_name to be uploaded
+############HADOOP CLUSTER SETTINGS############
+image_name: "CC-Ubuntu14.04"
+count: "2"
+flavor: "m1.large"
+addons: "spark"
+
+###############################################
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 38
+time_for_hadoop_deploy 551
+time_for_opencv_setup 237
+time_for_sign_detection 108
+time_for_data_transfer 34
+time_for_env_cleanup 0
+ 
+ 
+---
+############################################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS############################
+#cloud: "chameleon" or "jetstream"
+cloud: "chameleon"
+#username: "cloudmesh username as key_name"
+username: "rraghata"
+############HADOOP CLUSTER SETTINGS#########################
+#Chameleon image_name: CC-Ubuntu14.04
+#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
+#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
+#addons: spark pig hive
+
+
+image_name: "CC-Ubuntu14.04"
+count: "3"
+flavor: "m1.large"
+addons: "spark"
+
+############################################################
+ 
+ 
+Benchmark
+time_for_cloud_setup 47
+time_for_hadoop_deploy 980
+time_for_opencv_setup 262
+time_for_sign_detection 129
+time_for_data_transfer 31
+time_for_env_cleanup 0
+ 
+ 
+---
+###############################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS###############
+cloud: "chameleon"
+username: "snehalc" # key_name to be uploaded
+############HADOOP CLUSTER SETTINGS############
+image_name: "CC-Ubuntu14.04"
+count: "4"
+flavor: "m1.large"
+addons: "spark"
+
+###############################################
+time_for_local_setup 0
+time_for_cloud_setup 39
+time_for_hadoop_deploy 664
+time_for_opencv_setup 248
+time_for_sign_detection 104
+time_for_data_transfer 18
+time_for_env_cleanup 0
+ 
+
+---
+############################################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS############################
+#cloud: "chameleon" or "jetstream"
+cloud: "chameleon"
+#username: "cloudmesh username as key_name"
+username: "rraghata"
+############HADOOP CLUSTER SETTINGS#########################
+#Chameleon image_name: CC-Ubuntu14.04
+#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
+#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
+#addons: spark pig hive
+
+
+image_name: "CC-Ubuntu14.04"
+count: "3"
+flavor: "m1.medium"
+addons: "spark"
+
+############################################################
+ 
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 27
+time_for_hadoop_deploy 614
+time_for_opencv_setup 235
+time_for_sign_detection 125
+time_for_data_transfer 16
+time_for_env_cleanup 0
+ 
+ 
+---
+############################################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS############################
+#cloud: "chameleon" or "jetstream"
+cloud: "chameleon"
+#username: "cloudmesh username as key_name"
+username: "rraghata"
+############HADOOP CLUSTER SETTINGS#########################
+#Chameleon image_name: CC-Ubuntu14.04
+#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
+#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
+#addons: spark pig hive
+
+
+image_name: "CC-Ubuntu14.04"
+count: "4"
+flavor: "m1.medium"
+addons: "spark"
+
+############################################################
+ 
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 29
+time_for_hadoop_deploy 691
+time_for_opencv_setup 247
+time_for_sign_detection 123
+time_for_data_transfer 16
+time_for_env_cleanup 0
+ 
+ 
+---
+###############################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS###############
+cloud: "chameleon"
+username: "rraghata" # key_name to be uploaded
+############HADOOP CLUSTER SETTINGS############
+image_name: "CC-Ubuntu14.04"
+count: "5"
+flavor: "m1.medium"
+addons: "spark"
+
+###############################################
+ 
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 31
+time_for_hadoop_deploy 776
+time_for_opencv_setup 248
+time_for_sign_detection 121
+time_for_data_transfer 21
+time_for_env_cleanup 0
+ 
+
+---
+############################################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS############################
+#cloud: "chameleon" or "jetstream"
+cloud: "chameleon"
+#username: "cloudmesh username as key_name"
+username: "rraghata"
+############HADOOP CLUSTER SETTINGS#########################
+#Chameleon image_name: CC-Ubuntu14.04
+#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
+#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
+#addons: spark pig hive
+
+
+image_name: "CC-Ubuntu14.04"
+count: "6"
+flavor: "m1.medium"
+addons: "spark"
+
+############################################################
+ 
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 27
+time_for_hadoop_deploy 1041
+time_for_opencv_setup 444
+time_for_sign_detection 125
+time_for_data_transfer 19
+time_for_env_cleanup 0
+ 
+ 
+---
+############################################################
+#Variables for execution of complete package
+
+#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
+
+##############CLOUDMESH SETTINGS############################
+#cloud: "chameleon" or "jetstream"
+cloud: "chameleon"
+#username: "cloudmesh username as key_name"
+username: "rraghata"
+############HADOOP CLUSTER SETTINGS#########################
+#Chameleon image_name: CC-Ubuntu14.04
+#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
+#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
+#addons: spark pig hive
+
+
+image_name: "CC-Ubuntu14.04"
+count: "7"
+flavor: "m1.medium"
+addons: "spark"
+
+############################################################
+ 
+ 
+Benchmark
+time_for_local_setup 0
+time_for_cloud_setup 47
+time_for_hadoop_deploy 1157
+time_for_opencv_setup 457
+time_for_sign_detection 115
+time_for_data_transfer 19
+time_for_env_cleanup 0
+ 
+

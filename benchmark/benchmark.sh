@@ -1,7 +1,12 @@
 #!/bin/bash
 echo ' ' >> benchmark_time
 echo ' ' >> benchmark_time
+cat ../ansible/user_vars.yaml >> benchmark_time
+echo ' ' >> benchmark_time
+echo ' ' >> benchmark_time
 echo 'Benchmark' >> benchmark_time
+
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
 echo Benchmark 1
 echo "Time for local machine setup(ansible,cloudmesh,packages)" 

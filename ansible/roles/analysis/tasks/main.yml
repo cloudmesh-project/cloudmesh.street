@@ -13,39 +13,32 @@
   copy: src={{ item }} dest={{code_dir}}
   with_fileglob:
      - files/code/*.py
-#     - files/code/sign*.py
-  when: dir_flag.stat.exists == false
 
 - name: Copy input files images from local to master
   copy: src={{ item }} dest={{test_images}}
   with_fileglob:
      - files/test_data/images/*
-  when: dir_flag.stat.exists == false
 
 - name: Copy video from local to master
   copy: src={{ item }} dest={{test_videos}}
   with_fileglob:
      - files/test_data/videos/*
-  when: dir_flag.stat.exists == false
 
 - name: Copy stop sign classifier from local to master
   copy: src={{ item }} dest={{classifier_dir}}
   with_fileglob:
      - files/classifier/*.*
-  when: dir_flag.stat.exists == false
 
 - name: Create directory for output files
   become: yes
   file: path={{output_dir}} state=directory mode=0777
-  when: dir_flag.stat.exists == false
 
 - name: Create directory for video2image files
   become: yes
   file: path={{video2image_dir}} state=directory mode=0777
-  when: dir_flag.stat.exists == false
 
 - name: Run the spark-job
   become: true
   shell: |
      chown -R 777 {{workspace}}
-     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --driver-memory 2g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/videos/ /opencv_workspace/output/"
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/images/ /opencv_workspace/output/"
