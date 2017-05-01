@@ -13,4 +13,4 @@ export ANSIBLE_COMMAND_WARNINGS=false
 
 #Run ansible playbook:
 
-ansible-playbook -i inv sign_detection.yaml -v
+ansible-playbook -i inventory.txt sign_detection.yaml -v

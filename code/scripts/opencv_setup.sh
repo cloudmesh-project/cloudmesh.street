@@ -13,4 +13,4 @@ export ANSIBLE_COMMAND_WARNINGS=false
 
 #Run ansible playbook:
 
-ansible-playbook opencv_setup.yaml -i inv -v
+ansible-playbook -i inventory.txt opencv_setup.yaml -v

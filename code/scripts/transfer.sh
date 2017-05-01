@@ -16,5 +16,5 @@ export ANSIBLE_COMMAND_WARNINGS=false
 rm -r ansible/output
 
 #Run the output data transfer playbook:
-ansible-playbook transfer_output_to_local.yaml -i inv -v
+ansible-playbook -i inventory.txt transfer_output_to_local.yaml -v
 

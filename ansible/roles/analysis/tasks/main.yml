@@ -48,4 +48,4 @@
   become: true
   shell: |
      chown -R 777 {{workspace}}
-     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 512 --num-executors 2 --driver-memory 1g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/videos/ /opencv_workspace/output/"
+     su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --driver-memory 2g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/videos/ /opencv_workspace/output/"

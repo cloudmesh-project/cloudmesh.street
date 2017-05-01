@@ -13,6 +13,6 @@ export ANSIBLE_COMMAND_WARNINGS=false
 
 #Run ansible playbook:
 
-ansible-playbook env_clean.yaml -i inv -v
+ansible-playbook -i inventory.txt env_clean.yaml -v
 
 
