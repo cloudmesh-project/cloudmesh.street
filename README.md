@@ -1,4 +1,4 @@
-### STREET-SIGNS DETECTION in VIDEO over SPARK CLUSTER
+### STOP SIGN DETECTION IN IMAGE AND VIDEO STREAMS USING SPARK
 
 #### STEP 1: Clone or download cloudmesh.street repository to local machine
 
@@ -101,16 +101,17 @@ The above script when runs ,uses playbook--> ansible/opencv_setup.yaml
 The above script when runs ,uses playbook--> ansible/sign_detection.yaml
 
 ##DEFAULT: 
-As the images dataset as well as sample video is present in project directory[DETAILS IN APPENDIX], The default program performs sign detection on images.
+As the images dataset as well as sample video is present in project directory [Details given in Appendix below], The default program performs sign detection on images.
 
 To perform video analysis, Update the following file for last task:
 
-	cloudmesh.street/ansible/roles/analysis/tasks/mail.yml
+	cloudmesh.street/ansible/roles/analysis/tasks/main.yml
 
 with
 	
 	su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --driver-memory 2g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/videos/ /opencv_workspace/output/"
-
+	
+NOTE: You might run in to memory issues if you use m1.small flavors for cluster creation, since the  jobs need a minimum of medium flavor to run.
 ##### 3.6 Run the script transfer.sh to get the output from remote vms(cloud) to local machine for visual confirmation:
     
     . transfer.sh
