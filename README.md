@@ -1,4 +1,6 @@
-### STOP SIGN DETECTION IN IMAGE AND VIDEO STREAMS USING SPARK
+## STOP SIGN DETECTION IN IMAGE AND VIDEO STREAMS USING SPARK
+
+### PROJECT REPORT - https://github.com/cloudmesh/sp17-i524/blob/master/project/S17-IR-P003/report/report.pdf
 
 #### STEP 1: Clone or download cloudmesh.street repository to local machine
 
@@ -9,17 +11,17 @@ After getting local copy of the git repository, Go to directory "./ansible"
     UPDATE THE FOLLOWING VARIABLES <TBD values> IN "user_vars.yaml"
 	
 	---
-	############################################################
+	###########################################################
 	#Variables for execution of complete package
 
 	#EDIT FOLLOWING DETAILS AS PER REQUIREMENT
 
-	##############CLOUDMESH SETTINGS############################
+	##############CLOUDMESH SETTINGS###########################
 	#cloud: "chameleon" or "jetstream"
 	cloud: <TBD>
 	#username: "cloudmesh username as key_name"
 	username: <TBD>
-	############HADOOP CLUSTER SETTINGS#########################
+	############HADOOP CLUSTER SETTINGS########################
 	#Chameleon image_name: CC-Ubuntu14.04
 	#jetstream image_name: ubuntu-14.04-trusty-server-cloudimg
 	#flavor: m1.small, m1.medium, m1.large[preferred: m1.medium]
@@ -30,7 +32,7 @@ After getting local copy of the git repository, Go to directory "./ansible"
 	flavor: <TBD>
 	addons: <TBD>
 
-	##########################################################
+	###########################################################
 
 #### For e.g.: 
 
@@ -100,8 +102,8 @@ The above script when runs ,uses playbook--> ansible/opencv_setup.yaml
 
 The above script when runs ,uses playbook--> ansible/sign_detection.yaml
 
-##DEFAULT: 
-As the images dataset as well as sample video is present in project directory [Details given in Appendix below], The default program performs sign detection on images.
+###### DEFAULT: 
+The images dataset as well as sample video are present in project directory [Details given in Appendix below], the default program performs sign detection on images.
 
 To perform video analysis, Update the following file for last task:
 
@@ -111,7 +113,7 @@ with
 	
 	su - hadoop -c "spark-submit --master yarn --deploy-mode client --executor-memory 1g --driver-memory 2g --name signdetection --conf "spark.app.id=signdetection" /opencv_workspace/code/signdetectionbyspark.py /opencv_workspace/test_data/videos/ /opencv_workspace/output/"
 	
-NOTE: You might run in to memory issues if you use m1.small flavors for cluster creation, since the  jobs need a minimum of medium flavor to run.
+NOTE: You might run in to memory issues if you use m1.small flavors for cluster creation, since the  jobs need a minimum of medium flavor to run. For video, m1.large flavor is preferable for spark computing.
 ##### 3.6 Run the script transfer.sh to get the output from remote vms(cloud) to local machine for visual confirmation:
     
     . transfer.sh
@@ -176,7 +178,7 @@ Following directories are included as sample test-data:
 
 	./images/ - 50 images dataset
 	./videos/ - 1 video stop_video_1.mp4 (2 sec) 
-
+Note: Currently, code supports mp4 video files only. 
 #### A.3 CLASSIFIER
 "STOP SIGN CLASSIFIER" has been provided in "ansible/roles/analysis/files/classifier/"
 ##### A.3.1 For testing,only one classifier-"STOP SIGN" has been used. 
